@@ -12,7 +12,7 @@ const Header = () => {
                     <form>
                         <input type='text' name='search' placeholder='Search Movies...' />
                         <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
                 </div>

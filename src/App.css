@@ -7,6 +7,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+  background-color: #a70303;
 }
 
 .navbar {
@@ -66,19 +67,160 @@ body {
 .navbar .navbar-container {
   display: flex;
   justify-content: space-between;
+  line-height: 60px;
 }
 
 .navbar .navbar-container ul li a {
   color: #fff;
   text-decoration: none;
-  padding: 50px 20px;
-  line-height: 50px;
   transition: all ease-in 200ms;
+  padding: 10px 20px;
 }
 
+.navbar .navbar-container ul li:hover,
 .navbar .navbar-container ul li a:hover {
   color: black;
   background-color: #fff;
 }
 
 /* ---------- Navbar---------- */
+
+.movies-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.movies-container h1 {
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.movies-container .movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.movies-container .movie {
+  max-width: calc(500px - 40px);
+  color: #fff;
+  box-shadow: 0 0 20px maroon;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.movies-container .movie h2 {
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  border: none;
+}
+
+.movies-container .movie button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background-color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 10px maroon;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+/* ---------- End Listing Movies ---------- */
+
+.movie-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.movie-detail {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 40px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.movie-detail ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.movie-detail ul li {
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-container h1 {
+  color: #fff;
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+
+.movie-detail img {
+  box-shadow: 0 0 10px maroon;
+  border-radius: 10px;
+}
+
+.movie-detail p {
+  padding: 20px 0;
+}
+
+.movie-detail .images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.movie-detail .images img {
+  width: calc(280px - 12px);
+}
+
+.movie-detail .images img:nth-child(3) {
+  width: 100%;
+}
+
+/* ---------- End Movie ---------- */
+
+.loading {
+  display: inline-block;
+  transform: translateZ(1px);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading > div {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes loading {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+/* ---------- End Loading ---------- */

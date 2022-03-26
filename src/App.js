@@ -6,6 +6,7 @@ import Register from './components/Users/Register/Register';
 import Login from './components/Users/Login/Login';
 
 import './App.css';
+import MovieDetails from './components/MovieDetails/MovieDetails';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path='/users/register' element={<Register />} />
           <Route path='/users/login' element={<Login />} />
         </Routes>
