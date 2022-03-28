@@ -1,8 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import firebaseConfig from '../config/config-fb';
+import config from '../config/config';
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(config.firebaseConfig);
 
 const auth = getAuth(app);
 

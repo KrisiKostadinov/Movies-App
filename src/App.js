@@ -17,11 +17,11 @@ import Account from './components/Users/Account/Account';
 function App() {
   
   const [movies, setMovies] = useState([]);
+  const [user, setUser] = useState(null);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <main>
           <UsersContext.Provider value={{ user, setUser }}>
             <Header />
