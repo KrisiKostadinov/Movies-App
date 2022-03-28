@@ -10,6 +10,10 @@ body {
   background-color: #a70303;
 }
 
+main {
+  margin-bottom: 100px;
+}
+
 .navbar {
   background-color: maroon;
 }
@@ -83,6 +87,12 @@ body {
   background-color: #fff;
 }
 
+@media screen and (max-width: 700px) {
+  .navbar .navbar-container {
+    flex-direction: column;
+  }
+}
+
 /* ---------- Navbar---------- */
 
 .movies-container {
@@ -100,36 +110,61 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  justify-content: center;
 }
 
 .movies-container .movie {
-  max-width: calc(500px - 40px);
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
   color: #fff;
   box-shadow: 0 0 20px maroon;
-  border-radius: 20px;
   overflow: hidden;
   text-align: center;
+  position: relative;
+  border-radius: 5px;
+  margin: 0;
 }
 
 .movies-container .movie h2 {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   color: #fff;
   border: none;
+  font-size: 22px;
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.movies-container .movie:hover > h2 {
+  opacity: 1;
+}
+
+.movies-container .movie:hover > img {
+  opacity: 0.5;
 }
 
 .movies-container .movie button {
   padding: 10px 20px;
-  margin: 10px;
   border: none;
-  background-color: #fff;
-  font-weight: 600;
+  color: #fff;
+  background-color: #a70303;
   box-shadow: 0 0 10px maroon;
   cursor: pointer;
+  margin: 20px 0;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
-img {
-  width: 100%;
+.movies-container img {
+  width: 300px;
+  height: 200px;
+  transition: all 200ms ease-in-out;
 }
 
 /* ---------- End Listing Movies ---------- */
@@ -140,23 +175,56 @@ img {
   margin-top: 20px;
 }
 
+.movie-container img {
+  width: 100%;
+}
+
+.movie,
+.movie-container {
+  animation: fadeIn 1000ms forwards;
+  margin-bottom: 100px;
+}
+
 .movie-detail {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-direction: column;
   gap: 40px;
   color: #ccc;
   line-height: 1.5;
 }
 
+.movie-detail .header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  box-shadow: 0 0 10px maroon;
+  padding: 20px;
+}
+
 .movie-detail ul {
   list-style-type: none;
   padding: 0;
+  box-shadow: 0 0 10px maroon;
+  padding: 10px 0;
+  max-width: 700px;
+}
+
+.movie-detail ul h4 {
+  padding: 0 20px;
 }
 
 .movie-detail ul li {
-  max-width: 400px;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.movie-detail ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.movie-detail ul li:hover {
+  background-color: maroon;
 }
 
 .movie-container h1 {
@@ -165,27 +233,68 @@ img {
   text-align: center;
 }
 
-.movie-detail img {
+.movie-detail > img {
   box-shadow: 0 0 10px maroon;
   border-radius: 10px;
 }
 
-.movie-detail p {
-  padding: 20px 0;
+.movie-detail > div {
+  padding: 20px;
+  box-shadow: 0 0 10px maroon;
 }
 
 .movie-detail .images {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .movie-detail .images img {
-  width: calc(280px - 12px);
+  width: calc(50% - 5px);
 }
 
 .movie-detail .images img:nth-child(3) {
   width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .movie-detail {
+    margin: 20px;
+  }
+
+  .movie-detail .header {
+    display: grid;
+    grid-template-columns: 100%;
+    box-shadow: 0 0 10px maroon;
+    padding: 20px;
+  }
+
+  .movie-detail ul {
+    max-width: 100%;
+  }
+}
+
+.cast li {
+  display: flex;
+  align-items: center;
+}
+
+.cast img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------- End Movie ---------- */
@@ -198,6 +307,7 @@ img {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 .loading > div {
   display: inline-block;
   width: 64px;
@@ -207,6 +317,7 @@ img {
   background: #fff;
   animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 @keyframes loading {
   0%, 100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
@@ -224,3 +335,69 @@ img {
 }
 
 /* ---------- End Loading ---------- */
+
+.forms-container {
+  max-width: 400px;
+  margin: 100px auto 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px maroon;
+  color: #fff;
+}
+
+.forms-container h1 {
+  font-size: 27px;
+  text-align: center;
+}
+
+.forms-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.forms-container input {
+  width: 100%;
+  margin-top: 2px;
+  padding: 10px 20px;
+  color: #a70303;
+  outline: none;
+  border: none;
+  border: 2px solid maroon;
+  font-size: 18px;
+  border-radius: 2px;
+}
+
+.forms-container input::placeholder {
+  color: #a70303;
+}
+
+.forms-container button {
+  padding: 20px;
+  border: 2px solid maroon;
+  font-size: 20px;
+  color: #a70303;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: 200ms;
+}
+
+.forms-container button:hover {
+  background-color: maroon;
+  color: #fff;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 10px maroon;
+  position: absolute;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #a70303;
+}
+
+.footer a {
+  color: #fff;
+}
