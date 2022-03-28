@@ -10,24 +10,30 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 import Footer from './components/Footer/Footer';
 import MoviesContext from './context/MoviesContext';
 import { useState } from 'react';
+import UsersContext from './context/UsersContext';
+import Logout from './components/Users/Logout/Logout';
 
 function App() {
-  
+
   const [movies, setMovies] = useState([]);
+  const [user, setUser] = useState(null);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <main>
-          <MoviesContext.Provider value={{ movies, setMovies }}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/movies/:id" element={<MovieDetails />} />
-              <Route path='/users/register' element={<Register />} />
-              <Route path='/users/login' element={<Login />} />
-            </Routes>
-          </MoviesContext.Provider>
+          <UsersContext.Provider value={{ user, setUser }}>
+            <Header />
+            <MoviesContext.Provider value={{ movies, setMovies }}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/movies/:id" element={<MovieDetails />} />
+                <Route path='/users/register' element={<Register />} />
+                <Route path='/users/login' element={<Login />} />
+                <Route path='/users/logout' element={<Logout />} />
+              </Routes>
+            </MoviesContext.Provider>
+          </UsersContext.Provider>
         </main>
         <Footer />
       </BrowserRouter>

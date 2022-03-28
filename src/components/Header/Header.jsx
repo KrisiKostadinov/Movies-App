@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import UsersContext from '../../context/UsersContext';
 
 const Header = () => {
+
+    const { user } = useContext(UsersContext);
+
     return (
         <nav className='navbar'>
             <div className="navbar-container">
@@ -17,12 +21,27 @@ const Header = () => {
                     </form>
                 </div>
                 <ul>
-                    <li>
-                        <NavLink to='/users/login'>Login</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/users/register'>Register</NavLink>
-                    </li>
+                    {
+                        !user ?
+                            <>
+                                <li>
+                                    <NavLink to='/users/login'>Login</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/users/register'>Register</NavLink>
+                                </li>
+                            </>
+
+                            :
+                            <>
+                                <li>
+                                    <NavLink to='/users/account'>Hello, {user.email}</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/users/logout'>logout</NavLink>
+                                </li>
+                            </>
+                    }
                 </ul>
             </div>
         </nav>

@@ -19,7 +19,7 @@ main {
 }
 
 .navbar .navbar-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -386,6 +386,8 @@ main {
   color: #fff;
 }
 
+/* ---------- End Forms ---------- */
+
 .footer {
   padding: 20px 0;
   text-align: center;
@@ -400,4 +402,10 @@ main {
 
 .footer a {
   color: #fff;
+}
+
+.error {
+  padding: 10px 20px;
+  box-shadow: 0 0 10px maroon;
+  margin: 20px 0;
 }
