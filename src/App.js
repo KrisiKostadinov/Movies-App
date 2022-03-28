@@ -12,6 +12,7 @@ import MoviesContext from './context/MoviesContext';
 import { useState } from 'react';
 import UsersContext from './context/UsersContext';
 import Logout from './components/Users/Logout/Logout';
+import Account from './components/Users/Account/Account';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/movies/:id" element={<MovieDetails />} />
                 <Route path='/users/register' element={<Register />} />
                 <Route path='/users/login' element={<Login />} />
+                <Route path='/users/account' element={<Account />} />
                 <Route path='/users/logout' element={<Logout />} />
               </Routes>
             </MoviesContext.Provider>
